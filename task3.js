@@ -10,3 +10,13 @@ function post() {
     var p = document.getElementById("text-input").value;
     document.getElementsByClassName("post-content")[0].innerHTML = p;
 }
+
+function menu() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("menu").style.display = "block";
+}
+
+function back() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
