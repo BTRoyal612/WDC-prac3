@@ -18,8 +18,14 @@ function post() {
     eContent.innerHTML = content;
 
     // Get color
-    var c = document.querySelector('input[name="color"]:checked').value;
-    eContent.style.color = c;
+    var collection = document.getElementsByName("color");
+    for (let c of collection) {
+        console.log(c.value);
+        if (c.checked) {
+            eContent.style.color = c.value;
+            break;
+        }
+    }
 
     // Append accoding to quantity
     var posts = document.getElementById("posts");
