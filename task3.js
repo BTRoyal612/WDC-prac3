@@ -5,10 +5,31 @@ function countMouse() {
 }
 
 function post() {
-    const d =  new Date();
-    document.getElementsByClassName("post-time")[0].innerHTML = d;
-    var p = document.getElementById("text-input").value;
-    document.getElementsByClassName("post-content")[0].innerHTML = p;
+    const date =  new Date();
+    var content = document.getElementById("text-input").value;
+    var quantity = document.getElementsByName("quantity")[0].value;
+
+    // Create element
+    var eDate = document.createElement("P");
+    eDate.className = "post-time";
+    eDate.innerHTML = date;
+    var eContent = document.createElement("P");
+    eContent.className = "post-content";
+    eContent.innerHTML = content;
+
+    // Get color
+    var c = document.querySelector('input[name="color"]:checked').value;
+    eContent.style.color = c;
+
+    // Append accoding to quantity
+    var posts = document.getElementById("posts");
+    for (let i = 0; i < quantity; i++) {
+        let tempDate = eDate.cloneNode(true);
+        let tempContent = eContent.cloneNode(true);
+
+        posts.appendChild(tempDate);
+        posts.appendChild(tempContent);
+    }
 }
 
 function menu() {
