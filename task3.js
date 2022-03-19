@@ -47,14 +47,7 @@ function back() {
     document.getElementById("main").style.display = "block";
 }
 
-var timer = null;
-function setTimer() {
-    clearTimeout(timer);
-    timer = setTimeout(changeBackgroundColor, 500);
-}
-
 function changeBackgroundColor() {
     const BGcolor = document.querySelector('input[type=text]').value;
     document.body.style.backgroundColor = BGcolor;
 }
-
