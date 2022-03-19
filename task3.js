@@ -55,11 +55,6 @@ function setTimer() {
 
 function changeBackgroundColor() {
     const BGcolor = document.querySelector('input[type=text]').value;
-    if (isColor(BGcolor)) document.body.style.backgroundColor = BGcolor;
+    document.body.style.backgroundColor = BGcolor;
 }
 
-function isColor(strColor){
-    var s = new Option().style;
-    s.color = strColor;
-    return s.color == strColor;
-  }
