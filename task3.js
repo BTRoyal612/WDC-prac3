@@ -16,6 +16,10 @@ function post() {
     var eContent = document.createElement("P");
     eContent.className = "post-content";
     eContent.innerHTML = content;
+    var dateContent = document.createElement("DIV");
+    dateContent.style.display = "block";
+    dateContent.appendChild(eDate);
+    dateContent.appendChild(eContent);
 
     // Get color
     var colorCollection = document.getElementsByName("color");
@@ -38,11 +42,7 @@ function post() {
     // Append accoding to quantity
     var posts = document.getElementById("posts");
     for (let i = 0; i < quantity; i++) {
-        let tempDate = eDate.cloneNode(true);
-        let tempContent = eContent.cloneNode(true);
-
-        posts.appendChild(tempDate);
-        posts.appendChild(tempContent);
+        posts.appendChild(dateContent.cloneNode(true));
     }
 }
 
@@ -59,4 +59,19 @@ function back() {
 function changeBackgroundColor() {
     const BGcolor = document.querySelector('input[type=text]').value;
     document.body.style.backgroundColor = BGcolor;
+}
+
+function displayPost() {
+    const visible = document.querySelector('input[type=range]').value;
+    var posts = document.querySelectorAll("#posts > div");
+
+    for (let post of posts) {
+        post.style.display = "block";
+    }
+
+    if (visible < posts.length) {
+        for (let i = posts.length - 1; i >= visible; i--) {
+            posts[i].style.display = "none";
+        }
+    }
 }
