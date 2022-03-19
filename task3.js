@@ -20,7 +20,6 @@ function post() {
     // Get color
     var collection = document.getElementsByName("color");
     for (let c of collection) {
-        console.log(c.value);
         if (c.checked) {
             eContent.style.color = c.value;
             break;
@@ -47,3 +46,20 @@ function back() {
     document.getElementById("menu").style.display = "none";
     document.getElementById("main").style.display = "block";
 }
+
+var timer = null;
+function setTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(changeBackgroundColor, 500);
+}
+
+function changeBackgroundColor() {
+    const BGcolor = document.querySelector('input[type=text]').value;
+    if (isColor(BGcolor)) document.body.style.backgroundColor = BGcolor;
+}
+
+function isColor(strColor){
+    var s = new Option().style;
+    s.color = strColor;
+    return s.color == strColor;
+  }
