@@ -39,10 +39,35 @@ function post() {
         }
     }
 
+    // Get postion in post
+    var sel = document.querySelector(".left select");
+    var position = sel.value;
+
+    // Create option
+    var opt = document.createElement("OPTION");
+    opt.appendChild(document.createTextNode(content));
+    console.log(opt);
+
+    // Where to add post
+    var posts = document.querySelector("#posts");
+    if (position == -1) {
+        position = posts.children.length;
+    }
+    console.log(position);
+
     // Append accoding to quantity
-    var posts = document.getElementById("posts");
+    var q = posts.children;
     for (let i = 0; i < quantity; i++) {
-        posts.appendChild(dateContent.cloneNode(true));
+        posts.insertBefore(dateContent.cloneNode(true), q[++position]);
+        let opttemp = opt.cloneNode(true);
+        sel.insertBefore(opttemp, sel[++position]);
+    }
+    console.log(sel);
+    console.log(posts);
+
+    // Update value in option
+    for (let i = 1; i < sel.length; i++) {
+        sel[i].value = i-1;
     }
 
     // Display posts
