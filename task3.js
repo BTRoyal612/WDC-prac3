@@ -18,11 +18,20 @@ function post() {
     eContent.innerHTML = content;
 
     // Get color
-    var collection = document.getElementsByName("color");
-    for (let c of collection) {
-        if (c.checked) {
-            eContent.style.color = c.value;
+    var colorCollection = document.getElementsByName("color");
+    for (let color of colorCollection) {
+        if (color.checked) {
+            eContent.style.color = color.value;
             break;
+        }
+    }
+
+    // Get bold or italic
+    var styleCollection = document.getElementsByName("style");
+    for (let s of styleCollection) {
+        if (s.checked) {
+            eContent.style.fontWeight = s.value;
+            eContent.style.fontStyle = s.value;
         }
     }
 
