@@ -44,6 +44,9 @@ function post() {
     for (let i = 0; i < quantity; i++) {
         posts.appendChild(dateContent.cloneNode(true));
     }
+
+    // Display posts
+    displayPost();
 }
 
 function menu() {
